@@ -12,18 +12,18 @@ describe("Atono.io mini automation", () => {
 
     beforeEach(() => {
         //Change the test page resolution to 1024x768
-        cy.viewport(1024, 768)
+        cy.viewport(1024, 768);
 
         //Before every test navigate to the atono website
-        cy.visit("https://atono.io/")
+        cy.visit("https://atono.io/");
     })
 
     it("Click on the 'Products' button in the header and verify there are 4 products", () => {
         //Click on the 'Products' button in the header
-        header.clickProductsButton()
+        header.clickProductsButton();
 
         //Verify thay are 4 products inside the 'Product' section
-        header.getTheProductsList().should("have.length", 4)
+        header.getTheProductsList().should("have.length", 4);
     })
 
     it("Verify the Product 'Plan' page", () => {
@@ -53,7 +53,7 @@ describe("Atono.io mini automation", () => {
 
     it("Click on the 'Update' button in the header and verify the updates list isn't empty", () => {
         //Click on the 'Updates' button in the header
-        header.clickUpdatesButton()
+        header.clickUpdatesButton();
 
         //Verify the updates list isn't empty (have more then 0 updates)
         header.getTheUpdatesList().should("have.length.greaterThan", 0)
@@ -68,13 +68,13 @@ describe("Atono.io mini automation", () => {
     })
 
     it("Verify the 'About' page", () => {
-        const aboutValue = "About"
+        const aboutValue = "About";
 
         //Click on the 'About' button in the footer
-        footer.getTheEnableButtonsList().contains(aboutValue).click()
+        footer.getTheEnableButtonsList().contains(aboutValue).click();
 
         //Verify the image is visible
-        about.getAboutImage().should("be.visible")
+        about.getAboutImage().should("be.visible");
 
         //Verify the H1 title
         about.getH1TitleText().then((x) => {
@@ -99,7 +99,7 @@ describe("Atono.io mini automation", () => {
 
         //Print all the team members names
         about.getTheTeamNames().each(($teamMember) => {
-            cy.log($teamMember.text())
+            cy.log($teamMember.text());
         })
 
         //Writing my email in the email wish list
